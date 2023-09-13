@@ -84,3 +84,12 @@ ul{
     color: #ffffff;
     padding: 5px 0;
 }
+
+.photos{
+    width: 50px;
+    height: 100%;
+    margin-top: 300px;
+    margin-left: 200px;
+    padding: 25px;
+    position: absolute;
+}
