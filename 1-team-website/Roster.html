@@ -2,9 +2,9 @@
 <html>
     <style>
         table, th, td {
-                border:1px solid black;
-                margin-top: 150px;
+                margin-top: 5px;
                 margin-left: 550px;
+                padding: 8px;
               }
 
     </style>
@@ -32,114 +32,127 @@
                     <li><a href="file:///Users/stuartmoore/Desktop/377_Web_App_Dev/1-team-website/Pictures.html">Pictures</a></li>
                 </ul>
             </nav>
-            <table style="width:15%" class="tables">
-                <tr>
-                  <th>Last Name</th>
-                  <th>First Name</th>
-                  <th>Number</th>
-                </tr>
-                <tr>
-                  <td>Solari</td>
-                  <td>James</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>Bristol</td>
-                  <td>James</td>
-                  <td>2</td>
-                </tr>
-                <tr>
-                    <td>White</td>
-                    <td>Colin</td>
-                    <td>3</td>
-                  </tr>
-                  <tr>
-                    <td>Horner</td>
-                    <td>Cooper</td>
-                    <td>4</td>
-                  </tr>
-                  <tr>
-                    <td>McDermod</td>
-                    <td>James</td>
-                    <td>5</td>
-                  </tr>
-                  <tr>
-                    <td>Bellerby</td>
-                    <td>Matt</td>
-                    <td>6</td>
-                  </tr>
-
-                  <tr>
-                    <td>Elliott</td>
-                    <td>Benjamin</td>
-                    <td>7</td>
-                  </tr>
-                  <tr>
-                    <td>Richards</td>
-                    <td>Aiden</td>
-                    <td>8</td>
-                  </tr>
-                  <tr>
-                    <td>Borkiewicz</td>
-                    <td>Kacper</td>
-                    <td>9</td>
-                  </tr>
-                  <tr>
-                    <td>Butzbach</td>
-                    <td>Ryan</td>
-                    <td>10</td>
-                  </tr>
-                  <tr>
-                    <td>Schlumper</td>
-                    <td>Michael</td>
-                    <td>11</td>
-                  </tr>
-                  <tr>
-                    <td>Joyce</td>
-                    <td>Miles</td>
-                    <td>12</td>
-                  </tr>
-                  <tr>
-                    <td>Mutschler</td>
-                    <td>Ryan</td>
-                    <td>13</td>
-                  </tr>
-                  <tr>
-                    <td>Sheridan</td>
-                    <td>Andrew</td>
-                    <td>14</td>
-                  </tr>
-                  <tr>
-                    <td>Chadwick</td>
-                    <td>Cullen</td>
-                    <td>15</td>
-                  </tr>
-                  <tr>
-                    <td>Jenkins</td>
-                    <td>Matthew</td>
-                    <td>16</td>
-                  </tr>
-                  <tr>
-                    <td>DeMong</td>
-                    <td>Liam</td>
-                    <td>22</td>
-                  </tr>
-                  <tr>
-                    <td>MacPherson</td>
-                    <td>Colin</td>
-                    <td>24</td>
-                  </tr>
-                  <tr>
-                    <td>Theriault</td>
-                    <td>Scott</td>
-                    <td>25</td>
-                  </tr>
-                  <tr>
-                    <td>Mofford</td>
-                    <td>Juneau</td>
-                    <td>27</td>
-                  </tr>
-              </table>
+            <div id="tabTeamRoster" class="tab-pane active">
+                <table id="teamRosterTable" class="table table-schedule neg-mar table-hover tableReskin">
+                    <thead>
+                        <tr class="stabletr">
+                            <td class="fake-th" title="Jersey Number">
+                                Jersey
+                            </td>
+                            <td class="fake-th" title="Player Name">
+                                Name
+                            </td>
+                            <td class="fake-th" title="Graduation Year">
+                                Grad
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody class="tableReskin">
+                                    <tr class="rosterRow">
+                                        <td>0</td>
+                                        <td>Solari, James</td>
+                                        <td>2024</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>2</td>
+                                        <td>Bristol, James</td>
+                                        <td>2025</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>3</td>
+                                        <td>White, Colin</td>
+                                        <td>2025</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>4</td>
+                                        <td>Horner, Cooper</td>
+                                        <td>2025</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>5</td>
+                                        <td>McDermod, James</td>
+                                        <td>2026</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>6</td>
+                                        <td>Bellerby, Matthew</td>
+                                        <td>2025</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>7</td>
+                                        <td>Elliott, Benjamin</td>
+                                        <td>2024</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>8</td>
+                                        <td>Richards, Aiden</td>
+                                        <td>2025</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>9</td>
+                                        <td>Borkiewicz, Kacper</td>
+                                        <td>2025</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>10</td>
+                                        <td>Butzbach, Ryan</td>
+                                        <td>2024</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>11</td>
+                                        <td>Schlumper, Michael</td>
+                                        <td>2027</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>12</td>
+                                        <td>Joyce, Myles</td>
+                                        <td>2024</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>13</td>
+                                        <td>Mutschler, Ryan</td>
+                                        <td>2026</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>14</td>
+                                        <td>Sheridan, Andrew</td>
+                                        <td>2024</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>15
+                                        </td>
+                                        <td>Chadwick, Cullen</td>
+                                        <td>2025</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>16</td>
+                                        <td>Jenkins, Matthew</td>
+                                        <td>2025</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>22</td>
+                                        <td>DeMong, Liam</td>
+                                        <td>2024</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>24</td>
+                                        <td>MacPherson, Colin</td>
+                                        <td>2027</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>25</td>
+                                        <td>Theriault, Scott</td>
+                                        <td>2025</td>
+                                    </tr>
+                                    <tr class="rosterRow">
+                                        <td>27</td>
+                                        <td>Mofford, Juneau</td>
+                                        <td>2025</td>
+                                    </tr>
+            
+                    </tbody>
+                </table>
+            </div>
     </body>
 </html>
 
