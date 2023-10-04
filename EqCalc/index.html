@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+    <title>Physics equation Calculator</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <Script src="script.js"></Script>
+</head>
+<body>
+
+
+
+    <h1>Physics equation calculator</h1>
+    <br>
+    <form> 
+        <h1>Velocity</h1>
+        How far did it go?: <input id="distance" type="text" placeholder="distance">
+        <br>
+        Select a measurement of distance; 
+        <br>
+    <select id="distanceForm">
+        <option selected hidden="true">Pick one</option>
+        <option>Kilometers</option>
+        <option>Meters</option>
+        <option>Centimeters</option>
+        <option>Miles</option>
+        <option>Yards</option>
+        <option>Feet</option>
+    </select>
+    <br>
+        How long did it take: <input id="time" type="text" placeholder="time">
+        <br>
+        Select a measurement of time: 
+        <br>
+    <select id="timeForm">
+        <option selected hidden="true">Pick one</option>
+        <option>Second</option>
+        <option>Minute</option>
+        <option>Hour</option>
+    </select>
+    <br>
+        <input value="Calculate" type="button" onclick="velocity()">
+        <h2 id="velocity"></h2>
+    </form>
+    <br>
+    <form>
+        <h1>Addition With Error</h1>
+        What is the measurement of the first equation?:  
+        <br>
+        <input id="measurement1" type="int" placeholder="measurement 1"> &#177; <input id="error1" type="text" placeholder="Error">
+        <br>
+        What is the measurement of the second equation?: 
+        <br>
+        <input id="measurement2" type="int" placeholder="measurement 2"> &#177; <input id="error2" type="text" placeholder="Error">
+        <br>
+        <input value="calcluate" type="button" onclick="addWithError()">
+        <h2 id="addW/Error"></h2>
+    </form>
+    <br>
+    <form>
+        <h1>Subtraction With Error</h1>
+        What is the measurement of the first equation?:  
+        <br>
+        <input id="measurement1" type="int" placeholder="measurement 1"> &#177; <input id="error1" type="text" placeholder="Error">
+        <br>
+        What is the measurement of the second equation?: 
+        <br>
+        <input id="measurement2" type="int" placeholder="measurement 2"> &#177; <input id="error2" type="text" placeholder="Error">
+        <br>
+        <input value="calcluate" type="button" onclick="subtractWithError()">
+        <h2 id="addW/Error"></h2>
+    </form>
+    <br>
+    <form>
+        <h1>Multiplication With Error</h1>
+        What is the measurement of the first equation?: 
+        <br>
+        <input id="measurement1" type="int" placeholder="measurement 1"> &#177; <input id="error1" type="text" placeholder="Error">
+        <br>
+        What is the measurement of the second equation?: 
+        <br>
+        <input id="measurement2" type="int" placeholder="measurement 2"> &#177; <input id="error2" type="text" placeholder="Error">
+        <br>
+        <input value="calcluate" type="button" onclick="multiplyWithError()">
+        <h2 id="multWError"></h2>
+    </form>
+    <br>
+    <form>
+        <h1>Division With Error</h1>
+        What is the measurement of the first equation?: 
+        <br>
+        <input id="measurement1" type="int" placeholder="measurement 1"> &#177; <input id="error1" type="text" placeholder="Error">
+        <br>
+        What is the measurement of the second equation?: 
+        <br>
+        <input id="measurement2" type="int" placeholder="measurement 2"> &#177; <input id="error2" type="text" placeholder="Error">
+        <br>
+        <input value="calcluate" type="button" onclick="divideWithError()">
+        <h2 id="divideWError"></h2>
+    </form>
+
+</body>
+</html>
