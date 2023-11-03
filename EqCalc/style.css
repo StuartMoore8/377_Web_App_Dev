@@ -60,3 +60,10 @@ h1 + form {
     margin-bottom: 10px;
     border: 1px solid #ff0000;
 }
+
+select {
+    width: 89%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ff0000;
+}

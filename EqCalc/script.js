@@ -11,10 +11,8 @@ function velocity(){
     document.getElementById("timeForm").innerHTML;
 
     var velocity = distance / time;
-
     document.getElementById("velocity").innerHTML = "Your velocity is " + velocity + " " + dMeasurement + " per " + tMeasurement;
 }
-
 
 function addWithError(){
     var m1 = document.forms[1].elements['measurement1'].value;
@@ -29,20 +27,18 @@ function addWithError(){
     document.getElementById("addW/Error").innerHTML = pmTotal;
 }
 
-
 function subtractWithError(){
     var m1 = document.forms[2].elements['measurement1'].value;
     var m2 = document.forms[2].elements['measurement2'].value;
     var e1 = document.forms[2].elements['error1'].value;
     var e2 = document.forms[2].elements['error2'].value;
 
-    var pm1 = parseInt(m1) + parseInt(m2);
+    var pm1 = parseInt(m1) - parseInt(m2);
     var error = Math.round(Math.sqrt((parseInt(e1)**2) + (parseInt(e2)**2)));
     var pmTotal = pm1 + "&#177;" + error;
 
-    document.getElementById("addW/Error").innerHTML = pmTotal;
+    document.getElementById("subtractW/Error").innerHTML = pmTotal;
 }
-
 
 function multiplyWithError(){
     var m1 = document.forms[3].elements['measurement1'].value;
@@ -57,7 +53,6 @@ function multiplyWithError(){
 
     document.getElementById("multWError").innerHTML = mTotal;
 }
-
 
 function divideWithError(){
     var m1 = document.forms[4].elements['measurement1'].value;
