@@ -359,6 +359,7 @@ function validateBet(){
     }
 }
 
+
 function dealCardDealer(){
     getRandomIntInclusive();
     num = Math.ceil(Math.random() * 13);
