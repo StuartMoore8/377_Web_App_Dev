@@ -22,6 +22,7 @@ var gamblingAddiction;
 var playMore;
 
 function play(){
+    playMore = 'yes';
     total = 0;
     if(playAgain == 1){
         playMore = prompt("Are you sure you want to play again?");
@@ -29,10 +30,11 @@ function play(){
 
     if(playMore == 'yes' || playMore == 'Yes' || playMore == 'YES'){
         gamblingAddiction = prompt("Do you have a gambling addiction?");
+        
     }
 
     if(gamblingAddiction == 'no'){
-        prompt("Are you sure?");
+        prompt("Wanna bet?");
     }
     validateBet();
 }
