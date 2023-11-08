@@ -1,0 +1,99 @@
+#board{
+    color: rgb(17, 94, 0);
+}
+
+#message_Bet {
+    fill: #000000;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 75pt;
+    text-anchor: middle;
+}
+
+#message_Chips {
+    fill: #000000;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 25pt;
+    text-anchor: middle;
+}
+
+#message_Dealer {
+    fill: #000000;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 75pt;
+    text-anchor: middle;
+}
+
+#message_You {
+    fill: #000000;
+    font-family: Brush Script MT, Brush Script Std, cursive;
+    font-size: 75pt;
+    text-anchor: middle;
+}
+
+#controls{
+    font-size: 180%;
+    margin-left: 10px;
+    color: white;
+}
+
+.spacer{
+    margin: 30px;
+}
+
+#button{
+    width: 250px;
+    background-color: #ffffff;
+    padding: 14px 28px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#reset_button{
+    width: 250px;
+    background-color: #ffffff;
+    padding: 14px 28px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#hit{
+    width: 250px;
+    background-color: #ffffff;
+    padding: 14px 28px;
+    font-size: 16px;
+    text-align: center;
+}
+#done{
+    width: 250px;
+    background-color: #ffffff;
+    padding: 14px 28px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#bet{
+    height:50px;
+    width:200px;
+    font-size:14pt;
+}
+
+html{
+    background-color: blue;
+}
+
+h1{
+    color: white;
+}
+
+h2{
+    color: white;
+}
+
+h3{
+    font-size: 250px;
+}
+
+h4{
+    font-size: 80px;
+}
+
