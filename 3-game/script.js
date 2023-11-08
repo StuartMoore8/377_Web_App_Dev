@@ -19,22 +19,14 @@ var win;
 var totalCardsSoFar;
 var playAgain;
 var gamblingAddiction;
-var playMore;
 
 function play(){
-    playMore = 'yes';
-    total = 0;
     if(playAgain == 1){
-        playMore = prompt("Are you sure you want to play again?");
-    }
-
-    if(playMore == 'yes' || playMore == 'Yes' || playMore == 'YES'){
-        gamblingAddiction = prompt("Do you have a gambling addiction?");
-        
+        var gamblingAddiction = prompt("Are you sure you want to play again? Do you have a gambling addiction?");
     }
 
     if(gamblingAddiction == 'no'){
-        prompt("Wanna bet?");
+        prompt("Are you sure?");
     }
     validateBet();
 }
@@ -44,7 +36,6 @@ function hideCards(){
         $("#dealer_card" + i).css("visibility", "hidden");
         $("#player_card" + i).css("visibility", "hidden");
     }
-    $("place_card").css("visibility", "visible");
 }
 
 function dealerSuitAndNum() {
@@ -56,9 +47,6 @@ function dealerSuitAndNum() {
     } else if (num > 1 && num <= 13) {
       num = numValues[num - 1];
       dCardNum = num + 'Of';
-      if(suit == 1){
-        suit = 'Hearts'
-      }
       if (suit >= 1 && suit <= 4) {
         suit = suitValues[suit - 1];
       } else {
@@ -155,7 +143,6 @@ function dealCardPlayer(){
 }
 
 function dealersCards(){
-    dealerTotal = 0;
     dealCardDealer();
 
     cardnum = 1;
@@ -204,13 +191,11 @@ function dealersCards(){
 
     if(dealerTotal > 21){
         $("#message_Dealer").text("Dealer: " + dealerTotal + " you win.");
-        winnings += bet;
         done();
     }
 }
 
 function playersCards(){
-    total = 0;
     dealCardPlayer();
     total += value;
     console.log("Player: " + total + ": " + num + " of " + suit);

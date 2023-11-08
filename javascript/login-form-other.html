@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <script>
+
+            function Login(){
+                alert('Access denied');
+
+                
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <h1>Login form (example)</h1>
+
+        <form>
+            Username: <input name="username" type="text" placeholder="Enter your username"><br>
+            Password: <input name="password" type="password" placeholder="Enter your password"><br>
+            <input value="Login" type="button" onclick="Login()">
+        </form>
+
+        <h2>User Registration Form</h2>
+
+        <form>
+            First Name: <input name="First Name" type="text" placeholder="Enter your first name"><br>
+            Last Name: <input name="Last Name" type="text" placeholder="Enter your last name"><br>
+            Username: <input name="Last Name" type="text" placeholder="Enter your last name"><br>
+
+            I am a... <br>
+            <input id="student" name="userType" type="radio" value="Student">
+            <label for="student">Student</label>
+            <br>
+            <input id="teacher" name="userType" type="radio" value="Teacher">
+            <label for="teacher">Teacher</label>
+            <br><br><br>
+
+            Select your school<br>
+            <select>
+                <option selected hidden="true">Pick a School</option>
+                <option>Cedar</option>
+                <option>Center</option>
+                <option>HMS</option>
+                <option>HHS</option>
+            </select>
+            <br>
+
+            <input id="agree" name="agreement" type="checkbox"> 
+            <label for="agree">I agree to the terms of service...</label>
+
+        </form>
+
+    </body>
+</html>

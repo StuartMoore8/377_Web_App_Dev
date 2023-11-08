@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <script>
+            function calculateStats() {
+                var height = document.forms[0].elements['height'].value;
+                var width = document.forms[0].elements['width'].value;
+
+                var perimeter = (height*2) + (width*2);
+                
+                var area = height*width;
+                
+                document.getElementById('results').innerHTML = 
+                    '<table>' +
+                        '<tr>' +
+                            '<td>Area:</td>' + 
+                            '<td>' + area + '</td>' +
+                        '</tr>' +
+                        '<tr>' +
+                            '<td>Perimeter:</td>' + 
+                            '<td>' + perimeter + '</td>' +
+                        '</tr>' +
+                    '</table>';
+                            
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <form>
+            Height <input name="height" type="number" placeholder="Enter the height">
+            <br>
+            Width: <input name="width" type="number" placeholder="Enter the width">
+            <br>
+            <input value="Get Statistics" type="button" onclick="calculateStats()"> <br>
+
+            <!-- Area: <input name="area" type="text" readonly="true" /> -->
+
+            <div id="results">Your answer will appear here</div>
+        </form>
+    </body>
+</html>

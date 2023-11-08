@@ -1,0 +1,47 @@
+.board{
+    fill: rgb(0, 0, 255);
+}
+
+#controls{
+    font-size: 14px;
+}
+
+.die {
+    fill: white;
+    stroke: black;
+    stroke-width: 3;
+}
+
+#message{
+    fill: red;
+    font-family: Arial, sans-serif;
+    text-anchor: middle;
+    font-size: 13pt; 
+}
+
+.pip {
+    fill: black;
+    stroke: black;
+    visibility: visible;
+}
+
+#point{
+    fill: white;
+    font-family: Arial, sans-serif;
+    font-size: 24pt;
+    text-anchor: middle;
+}
+
+#puck{
+    fill: black;
+    stroke: white;
+}
+
+.spacer{
+    margin-left: 50px;
+}
+
+.spacer1{
+    margin-left: 70px;
+}
+
