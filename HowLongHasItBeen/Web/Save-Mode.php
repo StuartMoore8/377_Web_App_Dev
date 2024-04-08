@@ -23,20 +23,14 @@
 
 
 <?php
-// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Include database connection file
     require_once "db_connection.php";
 
-    // Get mode value from the form
     $mode = $_POST["mode"];
 
-    // Validate mode value (optional, since HTML form has 'required' attribute)
     if ($mode >= 1 && $mode <= 3) {
-        // Update the mode in the database for the current user (assuming user is logged in)
-        // Replace 'user_id' and 'email' with appropriate session or login information
-        $user_id = 1; // Example user ID
-        $email = "example@example.com"; // Example email
+        $user_id = 1;
+        $email = "example@example.com";
 
         $sql = "UPDATE Dates SET mode = :mode WHERE user_id = :user_id AND email = :email";
         $stmt = $pdo->prepare($sql);
@@ -54,7 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Invalid mode value.";
     }
 } else {
-    // Redirect to the Save Mode page if accessed directly without form submission
     header("Location: Save-Mode.php");
     exit();
 }

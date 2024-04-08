@@ -1,65 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #333333;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 100px auto;
+      background-color: #999999;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #16811C;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #999999;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #16811C;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0F6814;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .create-account-link {
+      color: #16811C;
+      text-decoration: none;
+    }
+
+    .create-account-link:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
+
 <body>
-    <h1>Sign Up</h1>
-    <form action="Dates-Sign-Up.php" method="POST">
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" maxlength="20" required><br><br>
-
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" minlength="8" required><br><br>
-
-        <br><br>
-
+  <div class="container">
+    <h1>Sign up to HowLongHasItBeen</h1>
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
         <input type="submit" value="Sign Up">
+      </div>
     </form>
+    <center><h2>----- or ------</h2></center>
+    <form action="Dates-Log-in.php" method="get">
+      <div class="form-group">
+      <center>Already have an account?</center>
+        <input type="submit" value="Log in instead">
+      </div>
+    </form>
+  </div>
 </body>
+
 </html>
-
-
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "password";
-$database = "Dates";
-
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Retrieve form data
-$email = $_POST['email'];
-$username = $_POST['username'];
-$password = $_POST['password'];
-$mode = $_POST['mode'];
-
-// Hash the password for security
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-// Prepare SQL statement to insert data into the Dates table
-$sql = "INSERT INTO Dates (email, username, password, mode) VALUES (?, ?, ?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("sssi", $email, $username, $hashed_password, $mode);
-
-// Execute the prepared statement
-if ($stmt->execute()) {
-    echo "Sign up successful! You can now log in.";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-// Close statement and connection
-$stmt->close();
-$conn->close();
-?>

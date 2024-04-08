@@ -1,74 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Login</h1>
-    <form action="login_process.php" method="POST">
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
-
-        <input type="submit" value="Login">
-    </form>
-</body>
-</html>
-
-
-
-<?php
-session_start();
-
-// Establish database connection
-$servername = "localhost";
-$username = "root";
-$password = "password";
-$database = "Dates";
-
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Retrieve form data
-$email = $_POST['email'];
-$password = $_POST['password'];
-
-// Prepare SQL statement to fetch user data based on email
-$sql = "SELECT * FROM Dates WHERE email = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $email);
-
-// Execute the prepared statement
-$stmt->execute();
-$result = $stmt->get_result();
-
-// Check if a user with the provided email exists
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    $hashed_password = $row['password'];
-
-    // Verify the password
-    if (password_verify($password, $hashed_password)) {
-        // Password is correct, set session variables and redirect to dashboard
-        $_SESSION['user_id'] = $row['user_id'];
-        $_SESSION['username'] = $row['username'];
-        header("Location: dashboard.php");
-    } else {
-        echo "Incorrect password. Please try again.";
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #333333;
     }
-} else {
-    echo "User with this email does not exist.";
-}
 
-// Close statement and connection
-$stmt->close();
-$conn->close();
-?>
+    .container {
+      max-width: 400px;
+      margin: 100px auto;
+      background-color: #999999;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #16811C;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #999999;
+      border-radius: 5px;
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #16811C;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0F6814;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .create-account-link {
+      color: #16811C;
+      text-decoration: none;
+    }
+
+    .create-account-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Sign up to HowLongHasItBeen</h1>
+    <form action="#" method="post">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Log in">
+      </div>
+    </form>
+    <center><h2>----- or ------</h2></center>
+    <form action="Dates-Sign-up.php" method="get">
+      <div class="form-group">
+        <center>Dont already have an account?</center>
+        <input type="submit" value="Sign up instead">
+      </div>
+    </form>
+    <center><a href="Forgot-password.php">Forgot Password?</a></center>
+  </div>
+</body>
+
+</html>
