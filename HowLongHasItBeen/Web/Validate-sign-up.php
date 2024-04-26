@@ -106,9 +106,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: none;
             position: absolute;
             top: 100%;
-            right: -100px;
+            right: -20px;
             background-color: #333;
-            min-width: 240px;
+            min-width: 180px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             z-index: 1;
         }
