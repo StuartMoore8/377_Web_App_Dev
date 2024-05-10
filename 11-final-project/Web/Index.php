@@ -85,18 +85,15 @@
             color: #fff;
             padding: 10px 20px;
         }
-
         nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
             display: flex;
         }
-
         nav ul li {
             margin-right: 10px;
         }
-
         nav ul li a {
             color: #fff;
             text-decoration: none;
@@ -104,15 +101,12 @@
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-
         nav ul li a:hover {
             background-color: #555;
         }
-
         .dropdown {
             position: relative;
         }
-
         .dropdown-content {
             display: none;
             position: absolute;
@@ -123,9 +117,18 @@
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             z-index: 1;
         }
-
         .dropdown:hover .dropdown-content {
             display: block;
+        }
+        .dropdown-content a {
+            color: #fff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #111;
         }
 
         #randomDate {
@@ -138,6 +141,11 @@
             height: 300px;
             margin-top: 20px;
         }
+
+        button {
+            width: 100px;
+            height: 30px;
+        }
     </style>
 </head>
 <body>
@@ -145,7 +153,7 @@
 <nav>
     <ul>
         <li><a href="index.php">Home</a></li>
-        <li><a href="#">About the creator</a></li>
+        <li><a href="https://www.instagram.com/stuart_moore8/">Creator's instagram</a></li>
     </ul>
     <div class="dropdown">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlS7eNSy0G_FmGzVi14nYpDgEgOuueBmvi9u3w6A0X_A&s" alt="User Menu" width="40" height="40">
@@ -163,14 +171,13 @@
 
 <div id="randomDate"></div>
 
-<svg id='clock' viewBox='0 36 122 36' xmlns='http://www.w3.org/2000/svg'>
-    <text x="50%" y="30" text-anchor="middle" id="years">0 years</text>
-    <text x="50%" y="50" text-anchor="middle" id="months">0 months</text>
-    <text x="50%" y="70" text-anchor="middle" id="days">0 days</text>
+<svg id='clock' viewBox='0 36 250 36' xmlns='http://www.w3.org/2000/svg'>
 
-    <text x="50%" y="150" text-anchor="middle" id="digitalClock">00:00:00</text>
+    <text x="50%" y="0" text-anchor="middle" id="It has been" font-size="50px">It has been</text>
+    <text x="50%" y="25" text-anchor="middle" id="days" font-size="25px">0 days</text>
 
-    <g id='seconds'>
+    <g id='seconds' transform='scale(2) translate(0, -20)'>
+
         <g>
             <path id='f7' d='M106,69l3-3h6l3,3c0,0-1,1-3,1h-6C107,70,106,69,106,69z'/>
             <path id='f6' d='M119,55l-3,2v8l3,3c0,0,1-1,1-3v-7C120,56,119,55,119,55z'/>
@@ -190,7 +197,7 @@
             <path id='e1' d='M88,39l3,3h6l3-3c0,0-1-1-3-1h-6C89,38,88,39,88,39z'/>
         </g>
     </g>
-    <g id='minutes'>
+    <g id='minutes' transform='scale(2) translate(0, -20)'>
         <g>
             <path id='d7' d='M64,69l3-3h6l3,3c0,0-1,1-3,1h-6C65,70,64,69,64,69z'/>
             <path id='d6' d='M77,55l-3,2v8l3,3c0,0,1-1,1-3v-7C78,56,77,55,77,55z'/>
@@ -210,7 +217,7 @@
             <path id='c1' d='M46,39l3,3h6l3-3c0,0-1-1-3-1h-6C47,38,46,39,46,39z'/>
         </g>
     </g>
-    <g id='hours'>
+    <g id='hours' transform='scale(2) translate(0, -20)'>
         <g>
             <path id='b7' d='M22,69l3-3h6l3,3c0,0-1,1-3,1h-6C23,70,22,69,22,69z'/>
             <path id='b6' d='M35,55l-3,2v8l3,3c0,0,1-1,1-3v-7C36,56,35,55,35,55z'/>
@@ -230,7 +237,7 @@
             <path id='a1' d='M4,39l3,3h6l3-3c0,0-1-1-3-1h-6C5,38,4,39,4,39z'/>
         </g>
     </g>
-    <g id='dots'>
+    <g id='dots' transform='scale(2) translate(0, -20)'>
         <g>
             <circle cx='82' cy='50' r='2'/>
             <circle cx='82' cy='58' r='2'/>
@@ -240,28 +247,47 @@
             <circle cx='40' cy='58' r='2'/>
         </g>
     </g>
+
+    <text x="50%" y="140" text-anchor="middle" id="cbajo" font-size="50px" >Since</text>
+    <text x="50%" y="170" text-anchor="middle" id="date" font-size="25px" >Date</text>
 </svg>
 
+
+<br>
+<br>
+<center><button id="saveButton">Save Date</button></center>
+
+
+
 <script>
-    function getRandomDate() {
-        var currentDate = new Date();
-        var pastDate = new Date(currentDate.getTime() - (Math.random() * 1000 * 365 * 24 * 60 * 60 * 1000));
-        return pastDate;
+
+    let isLoggedIn = false;
+
+    function loggedIn() {
+        isLoggedIn = true;
+        
+        alert("You are now logged in!");
     }
 
-    function displayRandomDate() {
-        var randomDate = getRandomDate();
-        var dateString = randomDate.toLocaleDateString('en-US', {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-        document.getElementById('randomDate').innerText = 'Random Date: ' + dateString;
+    function getDateAndDiff() {
+        var date2 = new Date();
+        var time = Math.random() * 1000 * 365 * 24 * 60 * 60 * 1000;
+        var date1 = new Date(date2.getTime() - time);
+        
+        var Difference_In_Time = date2.getTime() - date1.getTime();
+        
+        var Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
+        
+        console.log("Total number of days between dates:\n" + date1.toDateString() + " and " + date2.toDateString() + " is: " + Difference_In_Days + " days");
+
+        document.getElementById('days').textContent = Difference_In_Days + " days";
+        document.getElementById('date').textContent = date1.toDateString();
     }
 
-    function display(a, n) {
-        var number = [
+
+    (function() {
+        function display(a, n) {
+            number = [
             [1, 1, 1, 0, 1, 1, 1],
             [0, 0, 1, 0, 0, 1, 0],
             [1, 0, 1, 1, 1, 0, 1],
@@ -272,96 +298,90 @@
             [1, 0, 1, 0, 0, 1, 0],
             [1, 1, 1, 1, 1, 1, 1],
             [1, 1, 1, 1, 0, 1, 1] 
-        ];
+            ]
 
-        if (n >= 0 && n < number.length) {
-            var digits = number[n];
-            for (var i = 0; i < digits.length; i++) {
-                var crystal = document.getElementById(a + (i + 1));
-                crystal.style.opacity = digits[i] === 0 ? '0.125' : '1';
+            n = number[n]
+            i = 0
+            while (i < n.length) {
+            crystal = document.getElementById(a + (i + 1))
+            if (n[i] === 0) {
+                crystal.style.opacity = '0.125'
+            }
+            else {
+                crystal.style.opacity = '1'
+            }
+            i++
             }
         }
-    }
 
-    function format(value) {
-        return value < 10 ? '0' + value : value;
-    }
+        function format(value) {
+            value = value + ''
 
-    function updateClock() {
-        var now = new Date();
-        var hours = format(now.getHours());
-        var minutes = format(now.getMinutes());
-        var seconds = format(now.getSeconds());
+            if (value.length === 1) {
+            return '0' + value
+            }
 
-        display('a', hours[0]);
-        display('b', hours[1]);
-        display('c', minutes[0]);
-        display('d', minutes[1]);
-        display('e', seconds[0]);
-        display('f', seconds[1]);
-
-        document.getElementById('digitalClock').textContent = hours + ':' + minutes + ':' + seconds;
-
-        setTimeout(updateClock, 1000 - now.getMilliseconds());
-    }
-
-    function calculateTimeDifference() {
-        // var randomDate = getRandomDate();
-       
-        // var today = new Date();
-        // var currentDay = String(today.getDate()).padStart(2, '0');
-        // var currentMonth = String(today.getMonth() + 1).padStart(2, '0');
-        // var currentYear = today.getFullYear();
-
-        // today = currentMonth + '/' + currentDay + '/' + currentYear;
-        // console.log(today);
-
-
-        var DateDiff = {
-         inDays: function(d1, d2) {
-             var t2 = d2.getTime();
-             var t1 = d1.getTime();
-
-             return Math.floor((t2-t1)/(24*3600*1000));
-         },
-
-         inWeeks: function(d1, d2) {
-             var t2 = d2.getTime();
-             var t1 = d1.getTime();
-
-             return parseInt((t2-t1)/(24*3600*1000*7));
-         },
-
-         inMonths: function(d1, d2) {
-             var d1Y = d1.getFullYear();
-             var d2Y = d2.getFullYear();
-             var d1M = d1.getMonth();
-             var d2M = d2.getMonth();
-
-             return (d2M+12*d2Y)-(d1M+12*d1Y);
-         },
-
-         inYears: function(d1, d2) {
-             return d2.getFullYear()-d1.getFullYear();
-         }
+            return value
         }
 
-        var dString = "May, 20, 1984";
+        (function update() {
+            date = new Date()
+            hours = format(date.getHours())
+            minutes = format(date.getMinutes())
+            seconds = format(date.getSeconds())
 
-        var d1 = new Date(dString);
-        var d2 = new Date();
+            setTimeout(function() {
+            display('a', hours[0])
+            display('b', hours[1])
+            display('c', minutes[0])
+            display('d', minutes[1])
+            display('e', seconds[0])
+            display('f', seconds[1])
+            update()
+            }, 1000)
+        })()
+        })()
+    getDateAndDiff();
 
-        console.log("<br />Number of <b>days</b> since "+dString+": "+DateDiff.inDays(d1, d2));
-        console.log("<br />Number of <b>weeks</b> since "+dString+": "+DateDiff.inWeeks(d1, d2));
-        console.log("<br />Number of <b>months</b> since "+dString+": "+DateDiff.inMonths(d1, d2));
-        console.log("<br />Number of <b>years</b> since "+dString+": "+DateDiff.inYears(d1, d2));
+    function saveDate() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "save_date.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                console.log(xhr.responseText);
+            }
+        };
+        xhr.send("date=" + encodeURIComponent(document.getElementById('date').textContent));
     }
 
-    displayRandomDate();
-    updateClock();
+    document.getElementById('saveButton').addEventListener('click', saveDate);
 
-    var timeDifference = calculateTimeDifference();
-    // console.log('Time since the random date:', timeDifference.days, 'days', timeDifference.hours, 'hours', timeDifference.minutes, 'minutes', timeDifference.seconds, 'seconds');
+    function saveDate() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "save_date.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                } else {
+                    alert("Failed to save date.");
+                }
+            }
+        };
+        xhr.send("date=" + encodeURIComponent(document.getElementById('date').textContent));
+    }
+
+    document.getElementById('saveButton').addEventListener('click', function () {
+
+        if (isLoggedIn) {
+            saveDate();
+        } else {
+            alert("You need to sign up or log in to save a date");
+        }
+    });
+
 </script>
 
 </body>

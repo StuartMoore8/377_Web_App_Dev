@@ -130,15 +130,12 @@
         </ul>
         <div class="dropdown">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlS7eNSy0G_FmGzVi14nYpDgEgOuueBmvi9u3w6A0X_A&s" alt="User Menu" width="40" height="40">
-            <div class="dropdown-content">
-                <a href="Dates-Sign-Up.php">Sign Up</a>
-                <a href="Dates-Log-In.php">Log In</a>
-            </div>
         </div>
     </nav>
   <div class="container">
-    <h1>Sign up to HowLongHasItBeen</h1>
-    <form action="#" method="post">
+    <center><h1>Log in to HowLongHasItBeen</h1></center>
+    
+    <form action="Validate-log-in.php" method="post">
       <div class="form-group">
         <label for="email">Email</label>
         <input type="text" id="email" name="email" required>

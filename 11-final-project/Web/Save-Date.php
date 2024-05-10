@@ -6,7 +6,7 @@ $connection = get_database_connection();
 
 $sql = '';
 
-if (isset($user_id) && $Golfer_id != '')
+if (isset($user_id) && $user_id != '')
 {
     $sql =<<<SQL
     UPDATE Dates
